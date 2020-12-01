@@ -11,7 +11,7 @@
     <h2><center>Please enter your details</center></h2><br>
     <div align="center">
     <table>
-    <form name = "form" action = "success.php" method="post">
+    <form name = "form" action = "success.php" method="post" enctype="multipart/form-data">
       <tr>
         <td>
       Name:</td><td><input type="text" name="name"></td>
@@ -22,6 +22,9 @@
       </tr>
       <tr><td>
       Phone Number:</td><td><input type="text" name="ph"></td>
+      </tr>
+      <tr><td>
+      Add Photo:</td><td><input type="file" name="img"></td>
       </tr>
       </table>
       <br>

@@ -1,11 +1,16 @@
 <?php
+
 $name = $_POST['name'] ;
 $email = $_POST['email'];
 $ph = $_POST['ph'];
+$image_name = $_FILES['img']['name'];
+$temp_name = $_FILES['img']['tmp_name'];
 
 $con = mysqli_connect('localhost','root','root','client_test');
 
-$query = "INSERT INTO `clients`(`name`, `email`, `ph_no`) VALUES ('$name','$email','$ph')";
+move_uploaded_file($temp_name,"Images/$image_name");
+
+$query = "INSERT INTO `clients`(`name`, `email`, `ph_no`, `image`) VALUES ('$name','$email','$ph','$image_name')";
 
 $run = mysqli_query($con,$query);
 

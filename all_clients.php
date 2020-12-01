@@ -26,10 +26,12 @@ if($run == TRUE){
     <br><br>
     <div>
       <table style="width:400px" float = "right" border="">
+        <tr><img src= <?php echo "Images/" . $result['image']?> width="100" height="100"></tr>
         <tr><td> Id </td> <td> <?php echo $result['id']; ?> </td></tr>
         <tr><td> Name </td> <td> <?php echo $result['name']; ?> </td></tr>
         <tr><td> Email </td> <td> <?php echo $result['email']; ?> </td></tr>
         <tr><td> Ph. No. </td> <td> <?php echo $result['ph_no']; ?> </td></tr>
+        <tr><td> Photo name </td> <td> <?php echo $result['image']; ?> </td></tr>
       </table>
     </div>
 
