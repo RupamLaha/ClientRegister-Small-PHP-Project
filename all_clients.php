@@ -12,6 +12,69 @@ else{
   echo "Error: " . mysqli_connect_error() ."<br>";
 }
 
+?>
+
+<br>
+<form name = "delete" action = "all_clients.php" method = "post">
+  Type the id to delete: <input type = "number" name = "delete-id"><input type="submit" value="Delete" name = "delete_button">
+</form>
+<form name = "delete_all" action = "all_clients.php" method = "post">
+  <input type="submit" value="Delete All" name = "delete_all_button">
+</form>
+
+<!-- Delete id codes... -->
+
+<?php
+if(isset($_POST['delete_button'])){
+
+  $delete_id = $_POST['delete-id'];
+
+  // echo $delete_id;
+
+  $conn = mysqli_connect('localhost','root','root','client_test');
+
+  $d_query = "DELETE FROM `clients` WHERE id = $delete_id";
+
+  $run = mysqli_query($conn,$d_query);
+
+  if($conn == TRUE && $run == TRUE){
+    echo "Connection Successful and Successfully Deleted.<br>";
+  }
+  else{
+    echo "Error: " . mysqli_error() ."<br>";
+  }
+
+  echo "<a href='all_clients.php'><u><b>View all the existing clients list</u></b></a>";
+}
+?>
+
+<!-- Delete all codes... -->
+
+<?php
+if(isset($_POST['delete_all_button'])){
+
+  // echo $delete_id;
+
+  $conn = mysqli_connect('localhost','root','root','client_test');
+
+  $d_query = "DELETE FROM `clients`";
+
+  $run = mysqli_query($conn,$d_query);
+
+  if($conn == TRUE && $run == TRUE){
+    echo "Connection Successful and Successfully Deleted.<br>";
+  }
+  else{
+    echo "Error: " . mysqli_error() ."<br>";
+  }
+
+  echo "<a href='all_clients.php'><u><b>View all the existing clients list</u></b></a>";
+}
+?>
+
+
+<?php
+
 if($run == TRUE){
   while($result = mysqli_fetch_assoc($run)){
     // echo "<br>".$result['id']."<br>";
